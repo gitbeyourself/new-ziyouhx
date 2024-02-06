@@ -331,26 +331,27 @@ public class OtherGame extends TaskContent {
                 if (result.sim > 0.8f) {
                     result = mFairy.findPic("mbeml.png");
                     if (true) {//result.sim > 0.8f 目标恶魔令
-                        LtLog.e(mFairy.getLineInfo("目标正确"));
-                        result = mFairy.findPic("dzqxpp.png");
-                        mFairy.onTap(0.8f, result, "先取消一下自动匹配", Sleep);
+                        if (result.sim > 0.8f) {
+                            LtLog.e(mFairy.getLineInfo("目标正确"));
+                            result = mFairy.findPic("dzqxpp.png");
+                            mFairy.onTap(0.8f, result, "先取消一下自动匹配", Sleep);
 
-                        result = mFairy.findPic("dzzdpp.png");
-                        mFairy.onTap(0.8f, result, "开启自动匹配", Sleep);
+                            result = mFairy.findPic("dzzdpp.png");
+                            mFairy.onTap(0.8f, result, "开启自动匹配", Sleep);
 
-                        setTaskName(3);
-                        return;
-                    } else {
-                        result = mFairy.findPic(79, 107, 270, 599, "eml.png");
-                        mFairy.onTap(0.8f, result, "找到恶魔令", Sleep);
-                        mFairy.onTap(0.8f, result, 162, 615, 191, 628, "设为目标", Sleep);
-                        if (result.sim < 0.8f) {
-                            mFairy.taskSlid(err, new int[]{0, 1, 2, 3, 4, 5}, 0, 171, 541, 173, 160, 200, 1500, 2);
+                            setTaskName(3);
+                            return;
+                        } else {
+                            result = mFairy.findPic(79, 107, 270, 599, "eml.png");
+                            mFairy.onTap(0.8f, result, "找到恶魔令", Sleep);
+                            mFairy.onTap(0.8f, result, 162, 615, 191, 628, "设为目标", Sleep);
+                            if (result.sim < 0.8f) {
+                                mFairy.taskSlid(err, new int[]{0, 1, 2, 3, 4, 5}, 0, 171, 541, 173, 160, 200, 1500, 2);
+                            }
                         }
                     }
                 }
             }
-
             public void content_3() throws Exception {
                 if (overtime(8, 0)) {
                     return;
@@ -420,6 +421,7 @@ public class OtherGame extends TaskContent {
                     LtLog.e(mFairy.getLineInfo("包裹界面中"));
 
                     result = mFairy.findPic(761, 177, 1147, 570, "emldaoju.png");
+                    result = mFairy.findPic(761, 177, 1147, 570, new String[]{"emldaoju.png"});
                     mFairy.onTap(0.9f, result, "恶魔令", 3000);
 
                     result = mFairy.findPic(1008,232,1171,382,"shouli1.png");
@@ -438,8 +440,9 @@ public class OtherGame extends TaskContent {
                     } else{
                         mFairy.taskSlid(err, new int[]{2, 3, 4, 5, 6}, 0, 918, 538, 917, 225, 500, 1500, 2);
                     }
+                    }
+                    mFairy.taskSlid(err, new int[]{0, 1, 2, 3, 4, 5, 6}, 0, 918, 538, 917, 225, 500, 1500, 2);
                 }
-            }
 
             public void content_5() throws Exception {
                 if (overtime(8, 4)) {
@@ -468,6 +471,8 @@ public class OtherGame extends TaskContent {
                         result = mFairy.findPic(761, 177, 1147, 570, new String[]{"emldaoju1.png"});
                         mFairy.onTap(0.9f, result, "恶魔令道具包裹", Sleep);
                     }
+                    result = mFairy.findPic(761, 177, 1147, 570, new String[]{"emldaoju1.png"});
+                    mFairy.onTap(0.9f, result, "恶魔令道具包裹", Sleep);
 
                     result = mFairy.findPic(224, 189, 736, 652, "sywp.png");
                     mFairy.onTap(0.8f, result, "物品使用", 1000);
@@ -483,12 +488,14 @@ public class OtherGame extends TaskContent {
                     }else{
                         mFairy.taskSlid(err, new int[]{2, 3, 4, 5, 6}, 0, 918, 538, 917, 225, 500, 2500, 2);
                     }
+                    }
+                    mFairy.taskSlid(err, new int[]{0, 1, 2, 3, 4, 5, 6}, 0, 918, 538, 917, 225, 500, 2500, 2);
                 }
-            }
 
             public void content_6() throws Exception {
                 gameUtil.fuhuo();
                 result = mFairy.findPic(886,76,1121,163, "goaway.png");
+                result = mFairy.findPic(1032, 103, 1114, 160, "goaway.png");
                 if (result.sim > 0.8f) {
                     err=0;
                     result = mFairy.findPic(895, 462, 1097, 548, "used.png");

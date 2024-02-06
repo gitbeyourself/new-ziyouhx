@@ -34,6 +34,7 @@ public class LimitlessTask extends TaskContent {
         int h = mFairy.dateHour();
         int m = mFairy.dateMinute();
         int w = mFairy.week();
+
         if (!AtFairyConfig.getTaskID().equals("2033") && !AtFairyConfig.getTaskID().equals("2035") ) {
             result = mFairy.findPic(1144,1,1240,31,new  String[]{"llhj.png","huanjing.png"});
             if (result.sim > 0.8f) {
@@ -215,11 +216,15 @@ public class LimitlessTask extends TaskContent {
                 //gameUtil.callToFollow();
                 Thread.sleep(1000);
                 //gameUtil.cancelFollowing();
+                gameUtil.callToFollow();
+                Thread.sleep(1000);
+                gameUtil.cancelFollowing();
                 setTaskName(1);return;
             }
 
             public  void content_1() throws Exception {
                 timingActivity.timingActivity();
+
                 gameUtil.zidong();
 
                 if (AtFairyConfig.getOption("fuhuo").equals("1")) {
