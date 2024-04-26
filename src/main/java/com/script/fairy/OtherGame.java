@@ -278,7 +278,8 @@ public class OtherGame extends TaskContent {
                     for (int i = 0; i < 10; i++) {
                         mFairy.onTap(0.8f, result, 574,348,688,461, "血精石", 100);
                     }
-                    if (gameUtil.man() == 1) {
+                    result = mFairy.findPic(433,389,838,522,"jlbz.png");
+                    if ((gameUtil.man() == 1)||result.sim > 0.8f) {
                         setTaskEnd();
                         return;
                     } else {

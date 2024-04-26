@@ -65,6 +65,10 @@ public class LimitlessTask extends TaskContent {
             picCountMapS.clear();
             picCountMap.clear();
         }
+
+        result = mFairy.findPic(483,19,767,123,"cysc.png");
+        mFairy.onTap(0.8f, result, 1202,58,1213,70,"err商城退出", Sleep);
+
         result = mFairy.findPic(511, 6, 805, 437, "Pathfinding.png");
         if (result.sim > 0.8f) {
             LtLog.e(mFairy.getLineInfo("寻路中"));

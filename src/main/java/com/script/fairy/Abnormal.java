@@ -26,6 +26,15 @@ public class Abnormal extends TaskContent {
 
     //全局处理
     public void erro() throws Exception {
+        result = mFairy.findPic(483,19,767,123,"xcmb.png");
+        mFairy.onTap(0.8f, result, 1173,82,1181,92,"err星辰秘宝退出", Sleep);
+
+        result = mFairy.findPic(491,11,810,104,"cysc.png");
+        mFairy.onTap(0.8f, result, 1202,58,1213,70,"err商城退出", Sleep);
+
+        result = mFairy.findPic(537,38,738,105,"gwsll1.png");
+        mFairy.onTap(0.8f, result, 1186,97,1192,102,"err怪物狩猎叉", Sleep);
+
         result = mFairy.findPic(483, 300, 787, 419, "Slide lock.png");
         if (result.sim > 0.8f) {
             LtLog.e(mFairy.getLineInfo("err解锁中"));
@@ -38,12 +47,14 @@ public class Abnormal extends TaskContent {
             mFairy.killUserGame();
         }*/
 
+        result = mFairy.findPic(386,222,888,492,"rylq.png");
+        mFairy.onTap(0.8f, result, 755,449,767,456,"仍要拉取确定", Sleep);
+
         result = mFairy.findPic(648, 312, 1040, 595, "tongyi.png");
         mFairy.onTap(0.8f, result, "err同意", Sleep);
 
         result = mFairy.findPic(392, 267, 884, 505, "sszx.png");
         mFairy.onTap(0.8f, result, 513, 452, 520, 463, "err赛事中心取消前往", Sleep);
-
 
         result = mFairy.findPic("dialogue.png");
         mFairy.onTap(0.8f, result, "err对话", Sleep);
@@ -212,13 +223,11 @@ public class Abnormal extends TaskContent {
         result = mFairy.findPic("login1.png");
         mFairy.onTap(0.9f, result, "errqq登录", Sleep);
 
-        result = mFairy.findPic(902, 231, 1138, 354, "wenquan1.png");
+        result = mFairy.findPic(625,112,868,282, new String[]{"wenquan1.png","xq.png"});
         if (result.sim < 0.8f) {
             result = mFairy.findPic(1004, 9, 1144, 78, "zoom1.png");
             mFairy.onTap(0.7f, result, "err打开上边扩展栏", Sleep);
         }
-        result = mFairy.findPic(1004, 9, 1144, 78, "zoom1.png");
-        mFairy.onTap(0.7f, result, "err打开上边扩展栏", Sleep);
 
         result = mFairy.findPic("close2.png");
         mFairy.onTap(0.8f, result, "err打开左边扩展栏", Sleep);

@@ -1241,15 +1241,26 @@ public class TeamTask  extends TaskContent {
             public void content_1() throws Exception {
                 if (overtime(8, 0)) return;
                 result = mFairy.findPic(546, 129, 591, 232, "dhl.png");
-                mFairy.onTap(0.8f, result,   38,224,65,237,"对话栏切换到组队频道", Sleep);
+                mFairy.onTap(0.8f, result,  38,224,65,237,"对话栏切换到组队频道", Sleep);
                 if (result.sim>0.8f){
                     err=0;
-
                     result = mFairy.findPic(184,145,541,619, new String[]{"putong.png","putong1.png","tiaozhan.png"});
                     if (result.sim>0.8f){
                         result = mFairy.findPic(result.x -86, result.y - 6, result.x + 209, result.y + 46, "sqrd.png");
                         mFairy.onTap(0.8f, result,   "申请入队", Sleep);
                     }
+
+                    result = mFairy.findPic(200,548,506,617, "sqrd.png");
+                    mFairy.onTap(0.8f, result,   "申请入队", Sleep);
+
+                    result = mFairy.findPic(3,135,107,366, "duiwu1.png");
+                    if (result.sim > 0.8f) {
+                        LtLog.e(mFairy.getLineInfo("队伍中 "));
+                        gameUtil.close(0);
+                        setTaskName(2);
+                        return;
+                    }
+
                 }else {
                     result = mFairy.findPic(676, 7, 1152, 170, "daily.png");
                     mFairy.onTap(0.8f, result,  393,673, 394,674,"活动", Sleep);
@@ -1257,6 +1268,9 @@ public class TeamTask  extends TaskContent {
 
                 result = mFairy.findPic(855, 248, 1116, 410, "youceyaoqing.png");
                 mFairy.onTap(0.8f, result, 1030, 370, 1058, 384, "右侧同意邀请", Sleep);
+
+                result = mFairy.findPic(530,37,730,110,"gwsll.png");
+                mFairy.onTap(0.8f, result, 1183,96,1191,104,"关闭", Sleep);
 
                 result = mFairy.findPic("yryaoqing.png");
                 mFairy.onTap(0.8f, result, "有人邀请点开", Sleep);

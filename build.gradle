@@ -7,8 +7,8 @@ android {
         applicationId "com.zyhx.red"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode  664
-        versionName "664"
+        versionCode  709
+        versionName "709"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 

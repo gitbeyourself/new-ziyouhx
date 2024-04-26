@@ -35,7 +35,7 @@ public class TaskMain extends TaskContent {
     public TaskMain(AtFairyImpl ATFairy) throws Exception {
         mFairy = ATFairy;
         mFairy.setGameName("新自由幻想");
-        mFairy.setGameVersion(664);
+        mFairy.setGameVersion(709);
         init();
         gameUtil = new GameUtil(mFairy);
         teamTask = new TeamTask(mFairy);
@@ -52,6 +52,7 @@ public class TaskMain extends TaskContent {
         }
 
         if (task_id != 2029 && task_id != 100) {
+            timingActivity.timingActivity();
             gameUtil.lkfb();
             /*result = mFairy.findPic(new String[]{"mapinface.png", "mapinface1.png"});
             mFairy.onTap(1194,97,1201,117,"关闭地图界面", Sleep);*/
@@ -207,11 +208,10 @@ public class TaskMain extends TaskContent {
 
                     if (!AtFairyConfig.getOption("ryjjc").equals("") && (w == 2 || w == 4) && h == 20 && m < 30) {
                         gameUtil.lkfb();
-                        gameUtil.cancelFollowing();
                         timingActivity.ryjjc();
                     }
 
-                    if (AtFairyConfig.getOption("cfjj").equals("1") && w == 6 && h==20 && m<20) {
+                    if (AtFairyConfig.getOption("cfjj").equals("1") && w == 4 &&( h==12 && m>=30) || ( h==20 && m>=30)) {
                         gameUtil.lkfb();
                         gameUtil.cancelFollowing();
                         timingActivity.cfjj();
@@ -282,6 +282,7 @@ public class TaskMain extends TaskContent {
                 break;
             //野外挂机
             case 2025:
+                timingActivity.timingActivity();
                 if (AtFairyConfig.getOption("5597").equals("1")) {
                     gameUtil.setjn();
                 }

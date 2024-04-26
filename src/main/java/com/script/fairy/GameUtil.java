@@ -86,6 +86,9 @@ public class GameUtil extends TaskContent {
             }
 
             public void content_0() throws Exception {
+                result = mFairy.findPic(11,80,112,478, "dq.png");
+                mFairy.onTap(0.8f, result, 1232,43,1240,54,"地图关闭", Sleep);
+
                 if (findtask >= 3) {
                     LtLog.e("没有这个任务");
                     GameUtil.this.tastState = 0;
@@ -260,7 +263,7 @@ public class GameUtil extends TaskContent {
                 mFairy.onTap(0.8f, result, "关闭挂机", Sleep);
             }
 
-            result = mFairy.findPic(478,7,1274,373, new String[]{"fork.png", "fork3.png","cha1.png","fork4.png"});
+            result = mFairy.findPic(478,7,1274,373, new String[]{"fork.png", "fork3.png","cha1.png","cha3.png","fork4.png"});
             mFairy.onTap(0.85f, result, "关叉", Sleep);
             if (result.sim > 0.85f) {
                 j = 4;
@@ -268,14 +271,14 @@ public class GameUtil extends TaskContent {
 
             result = mFairy.findPic(864, 81, 1139, 237, "jia4.png");
             if (result.sim < 0.8f) {
-                result = mFairy.findPic(492, 12, 1272, 334, new String[]{"close4.png"});
-                mFairy.onTap(0.85f, result, "关叉3", Sleep);
+                /*result = mFairy.findPic(492, 12, 1272, 334, new String[]{"close4.png"});
+                mFairy.onTap(0.85f, result, "关叉3", Sleep);*/
 
                 result = mFairy.findPic(492, 12, 1272, 334, new String[]{"fork2.png"});
                 mFairy.onTap(0.85f, result, "关叉2", Sleep);
 
                 result = mFairy.findPic(492, 12, 1272, 334, new String[]{"fork1.png"});
-                mFairy.onTap(0.85f, result, "关叉1", Sleep);
+                mFairy.onTap(0.9f, result, "关叉1", Sleep);
             }
 
             result = mFairy.findPic(154, 345, 1110, 671, "kjclose.png");
@@ -364,6 +367,8 @@ public class GameUtil extends TaskContent {
                 result = mFairy.findPic(39, 121, 298, 428, "call.png");
                 mFairy.onTap(0.8f, result, "召唤跟随", Sleep);
                 if (result.sim > 0.8f) {
+                    result = mFairy.findPic(386,222,888,492,"rylq.png");
+                    mFairy.onTap(0.8f, result, 755,449,767,456,"仍要拉取确定", Sleep);
                     setTaskName(2);
                     return;
                 }
@@ -371,6 +376,8 @@ public class GameUtil extends TaskContent {
             }
 
             public void content_2() throws Exception {
+                result = mFairy.findPic(386,222,888,492,"rylq.png");
+                mFairy.onTap(0.8f, result, 755,449,767,456,"仍要拉取确定", Sleep);
                 close(0);
                 setTaskEnd();
             }
@@ -697,6 +704,16 @@ public class GameUtil extends TaskContent {
                             break;
                     }
                     Thread.sleep(5000);
+
+                    result = mFairy.findPic("ctiyinface.png");
+                    mFairy.onTap(0.8f, result, 1233,40,1242,55, "家园地图", Sleep);
+
+                    result = mFairy.findPic("ctiyinface.png");
+                    mFairy.onTap(0.8f, result, 1233,40,1242,55, "家园地图", Sleep);
+
+                    result = mFairy.findPic(11,80,112,478, "dq.png");
+                    mFairy.onTap(0.8f, result, 1232,43,1240,54,"地图关闭", Sleep);
+
                     setTaskName(2);
                     return;
                 }
@@ -1090,12 +1107,14 @@ public class GameUtil extends TaskContent {
     public void retire() throws Exception {
         new GameUtil(mFairy) {
             public void content_0() throws Exception {
-                close(0);
                 setTaskName(1);
             }
 
             public void content_1() throws Exception {
                 if (overtime(15, 0)) return;
+
+                result = mFairy.findPic(546, 129, 591, 232, "dhl.png");
+                mFairy.onTap(0.8f, result,   "频道收回", Sleep);
 
                 result = mFairy.findPic("duiwulan.png");
                 mFairy.onTap(0.8f, result, "切换到队伍栏", Sleep);
@@ -1111,26 +1130,34 @@ public class GameUtil extends TaskContent {
                 mFairy.onTap(0.8f, result, 775, 612, 850, 633, "邀请列表清空", Sleep);
                 mFairy.onTap(0.8f, result, 438, 613, 477, 625, "邀请列表关闭", Sleep);
 
-                result = mFairy.findPic("chuanjianduiwu.png");
+                result = mFairy.findPic(275,587,501,687,"chuanjianduiwu.png");
                 if (result.sim > 0.8f) {
                     LtLog.e(mFairy.getLineInfo("没有队伍退队结束"));
-                    setTaskName(2);
+                    mFairy.onTap(0.8f, result, 1180,88,1193,101, "关闭", Sleep);
+                    setTaskEnd();
                     return;
                 }
 
 
-                result = mFairy.findPic("yijianhanhua.png");
-                mFairy.onTap(0.8f, result, 409, 627, 439, 642, "是队长退队", Sleep);
+                result = mFairy.findPic(708,572,1216,693,"yijianhanhua.png");
+                if (result.sim > 0.8f) {
+                    LtLog.e(mFairy.getLineInfo("是队长退队"));
+                    mFairy.onTap(0.8f, result, 409, 627, 439, 642, "是队长退队", Sleep);
 
+                    result = mFairy.findPic("tuiduisure.png");
+                    mFairy.onTap(0.8f, result, 743, 445, 781, 462, "确定离开队伍", Sleep);
+                    setTaskEnd();
+                    return;
+                }
 
-                result = mFairy.findPic(new String[]{"gensuiduiwu.png", "qxgs.png"});
+                result = mFairy.findPic(770,577,1218,696,new String[]{"gensuiduiwu.png", "qxgs.png"});
                 mFairy.onTap(0.8f, result, 415, 623, 447, 639, "是队员退队", Sleep);
 
 
                 result = mFairy.findPic("tuiduisure.png");
                 mFairy.onTap(0.8f, result, 743, 445, 781, 462, "确定离开队伍", Sleep);
                 if (result.sim > 0.8f) {
-                    setTaskName(2);
+                    setTaskEnd();
                     return;
                 }
             }
@@ -1632,6 +1659,24 @@ public class GameUtil extends TaskContent {
                         mFairy.ranSwipe(823, 563, 823, 294, 500, (long) 2000, 2);
                         result = mFairy.findPic(739, 249, 866, 598, "pengren.png");
                         mFairy.onTap(0.8f, result, result.x + 228, result.y + 26, result.x + 229, result.y + 27, "烹饪", 2000);
+                        if (!AtFairyConfig.getOption("mt").equals("")) {
+                            mFairy.onTap(0.8f, result, 904,271,913,272,"馒头", 100);
+                        }
+                        if (!AtFairyConfig.getOption("dn").equals("")) {
+                            mFairy.onTap(0.8f, result, 989,272,993,276,"豆奶", 100);
+                        }
+                        if (!AtFairyConfig.getOption("nrm").equals("")) {
+                            mFairy.onTap(0.8f, result, 1078,269,1084,273,"牛肉面", 100);
+                        }
+                        if (!AtFairyConfig.getOption("gj").equals("")) {
+                            mFairy.onTap(0.8f, result, 908,344,914,347,"果酒", 100);
+                        }
+                        if (!AtFairyConfig.getOption("hsr").equals("")) {
+                            mFairy.onTap(0.8f, result, 993,341,996,344,"红烧肉", 100);
+                        }
+                        if (!AtFairyConfig.getOption("csm").equals("")) {
+                            mFairy.onTap(0.8f, result, 1073,342,1077,348,"长寿面", 100);
+                        }
                         result = mFairy.findPic("pengren1.png");
                         for (int i = 0; i < pr.count; i++) {
                             mFairy.onTap(0.8f, result, "烹饪", 100);
@@ -1639,19 +1684,62 @@ public class GameUtil extends TaskContent {
                     }
                     if (ly.count != 0) {
                         result = mFairy.findPic("jinenginface.png");
-                        mFairy.onTap(0.8f, result, 248, 304, 269, 321, "切换到炼药", Sleep);
-                        for (int i = 0; i < ly.count; i++) {
-                            mFairy.onTap(0.8f, result, 975, 599, 1014, 615, "炼药", 100);
-                        }
+                        mFairy.onTap(0.8f, result, 256,495,267,503, "切换到炼药", Sleep);
                         if (result.sim < 0.8f) {
                             mFairy.ranSwipe(823, 563, 823, 294, 500, (long) 2000, 2);
                             result = mFairy.findPic(739, 249, 866, 598, "pengren.png");
                             mFairy.onTap(0.8f, result, result.x + 228, result.y + 26, result.x + 229, result.y + 27, "烹饪", 2000);
                             result = mFairy.findPic("jinenginface.png");
-                            mFairy.onTap(0.8f, result, 248, 304, 269, 321, "切换到炼药", Sleep);
+                            mFairy.onTap(0.8f, result, 256,495,267,503, "切换到炼药", Sleep);
+                        }
+
+                        result = mFairy.findPic(404,116,654,190,"lianyao1.png");
+                        if (result.sim < 0.8f) {
+                            mFairy.ranSwipe(1081,270, 1084,432, 500, (long) 2000, 2);
+                            if (!AtFairyConfig.getOption("zxy").equals("")) {
+                                mFairy.onTap(0.8f, result, 878,293,884,300,"止血药", 100);
+                            }
+                            if (!AtFairyConfig.getOption("bqw").equals("")) {
+                                mFairy.onTap(0.8f, result, 954,289,961,296,"补气丸", 100);
+                            }
+                            if (!AtFairyConfig.getOption("jcy").equals("")) {
+                                mFairy.onTap(0.8f, result, 1039,290,1044,295,"金疮药", 100);
+                            }
+                            if (!AtFairyConfig.getOption("hss").equals("")) {
+                                mFairy.onTap(0.8f, result, 1129,293,1135,297,"还神散", 100);
+                            }
+
+                            if (!AtFairyConfig.getOption("xjd").equals("")) {
+                                mFairy.onTap(0.8f, result, 879,375,883,380,"行军丹", 100);
+                            }
+                            if (!AtFairyConfig.getOption("bhl").equals("")) {
+                                mFairy.onTap(0.8f, result, 955,374,961,378,"百花露", 100);
+                            }
+                            if (!AtFairyConfig.getOption("tjxd").equals("")) {
+                                mFairy.onTap(0.8f, result, 1038,374,1042,380,"太极仙丹", 100);
+                            }
+                            if (!AtFairyConfig.getOption("qjyl").equals("")) {
+                                mFairy.onTap(0.8f, result, 1119,373,1127,377,"琼浆玉露", 100);
+                            }
+
+                            mFairy.ranSwipe(1084,367, 1084,210, 500, (long) 2000, 2);
+                            if (!AtFairyConfig.getOption("xmw").equals("")) {
+                                mFairy.onTap(0.8f, result, 879,375,883,380,"续命丸", 100);
+                            }
+                            if (!AtFairyConfig.getOption("dhd").equals("")) {
+                                mFairy.onTap(0.8f, result, 955,374,961,378,"大还丹", 100);
+                            }
+                            if (!AtFairyConfig.getOption("jhyl").equals("")) {
+                                mFairy.onTap(0.8f, result, 1038,374,1042,380,"九花玉露", 100);
+                            }
+                            if (!AtFairyConfig.getOption("jzhhd").equals("")) {
+                                mFairy.onTap(0.8f, result, 1119,373,1127,377,"九转还魂丹", 100);
+                            }
+
                             for (int i = 0; i < ly.count; i++) {
                                 mFairy.onTap(0.8f, result, 975, 599, 1014, 615, "炼药", 100);
                             }
+
                         }
                     }
                     setTaskName(2);
